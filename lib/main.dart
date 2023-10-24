@@ -15,7 +15,7 @@ class CounterApp extends StatelessWidget {
     return MaterialApp(
       home: BlocProvider(
         create: (_) => CounterBloc(),
-        child: CounterPage(),
+        child: const CounterPage(),
       ),
     );
   }
