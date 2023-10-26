@@ -32,7 +32,22 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           const Text("You have pushed this button this many times:"),
-          BlocBuilder<CounterCubit, CounterState>(
+          BlocConsumer<CounterCubit, CounterState>(
+            listener: (context, state) {
+              if (state.wasIncremented == true) {
+                ScaffoldMessenger.of(context).clearSnackBars();
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content: Text("Incremented"),
+                  duration: Duration(seconds: 2),
+                ));
+              } else {
+                ScaffoldMessenger.of(context).clearSnackBars();
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content: Text("Decremented"),
+                  duration: Duration(seconds: 2),
+                ));
+              }
+            },
             builder: (context, state) {
               return Text(
                 state.counterValue.toString(),
