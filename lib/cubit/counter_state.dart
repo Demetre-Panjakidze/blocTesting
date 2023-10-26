@@ -1,5 +1,4 @@
 part of 'counter_cubit.dart';
-import 'package:equatable/equatable.dart';
 
 class CounterState extends Equatable {
   final int counterValue;
