@@ -4,11 +4,11 @@ class CounterState extends Equatable {
   final int counterValue;
   final bool? wasIncremented;
 
-  CounterState({
+  const CounterState({
     required this.counterValue,
     this.wasIncremented,
   });
 
   @override
-  List<Object> get props => [counterValue, wasIncremented];
+  List<Object> get props => [counterValue, wasIncremented!];
 }

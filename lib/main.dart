@@ -4,8 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubit/counter_cubit.dart';
 
 void main() {
-  final CounterState counterState1 = CounterState(counterValue: 1);
-  final CounterState counterState2 = CounterState(counterValue: 1);
   runApp(const MyApp());
 }
 
@@ -54,50 +52,44 @@ class _MyHomePageState extends State<MyHomePage> {
             BlocConsumer<CounterCubit, CounterState>(
               listener: (context, state) {
                 ScaffoldMessenger.of(context).clearSnackBars();
-                if (state.wasIncremented == true) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Incremented!'),
-                      duration: Duration(seconds: 3),
-                    ),
-                  );
-                } else if (state.wasIncremented == false) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Decremented!'),
-                      duration: Duration(seconds: 3),
-                    ),
-                  );
-                }
+                ScaffoldMessenger.of(context).showSnackBar(
+                  state.wasIncremented == true
+                      ? const SnackBar(
+                          content: Text("Incremented"),
+                          duration: Duration(seconds: 2),
+                        )
+                      : const SnackBar(
+                          content: Text("Decremented"),
+                          duration: Duration(seconds: 2),
+                        ),
+                );
               },
               builder: (context, state) {
                 return Text(
                   state.counterValue.toString(),
-                  style: const TextStyle(fontSize: 20),
+                  style: const TextStyle(fontSize: 30),
                 );
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FloatingActionButton(
-                  heroTag: Text('${widget.title}'),
                   onPressed: () {
                     BlocProvider.of<CounterCubit>(context).decrement();
                   },
                   tooltip: 'Decrement',
-                  child: Icon(Icons.remove),
+                  child: const Icon(Icons.remove),
                 ),
                 FloatingActionButton(
-                  heroTag: Text('${widget.title} #2'),
                   onPressed: () {
                     BlocProvider.of<CounterCubit>(context).increment();
                   },
                   tooltip: 'Increment',
-                  child: Icon(Icons.add),
+                  child: const Icon(Icons.add),
                 ),
               ],
             ),
