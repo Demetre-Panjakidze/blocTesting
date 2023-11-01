@@ -18,6 +18,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title!),
+        backgroundColor: widget.color,
       ),
       body: Center(
         child: Column(
