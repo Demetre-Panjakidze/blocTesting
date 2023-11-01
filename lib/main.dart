@@ -9,6 +9,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  MyApp({super.key});
   final AppRouter _appRouter = AppRouter();
 
   @override

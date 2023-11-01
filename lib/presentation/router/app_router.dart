@@ -1,9 +1,7 @@
-import 'package:bloctesting/logic/cubit/counter_cubit.dart';
 import 'package:bloctesting/presentation/screens/home_screen.dart';
 import 'package:bloctesting/presentation/screens/second_screen.dart';
 import 'package:bloctesting/presentation/screens/third_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
   Route? onGenerateRoute(RouteSettings routeSettings) {

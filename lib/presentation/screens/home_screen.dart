@@ -1,6 +1,7 @@
 import 'package:bloctesting/logic/cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, this.title, this.color});
@@ -48,9 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             ),
-            const SizedBox(
-              height: 24,
-            ),
+            const Gap(24),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -70,9 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 24,
-            ),
+            const Gap(24),
             MaterialButton(
               color: widget.color,
               onPressed: () {
@@ -85,9 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 24,
-            ),
+            const Gap(24),
             MaterialButton(
               color: widget.color,
               onPressed: () {
