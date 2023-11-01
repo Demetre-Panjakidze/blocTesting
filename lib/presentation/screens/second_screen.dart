@@ -1,12 +1,11 @@
 import 'package:bloctesting/logic/cubit/counter_cubit.dart';
-import 'package:bloctesting/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SecondScreen extends StatefulWidget {
-  const SecondScreen({super.key, required this.title, this.color});
+  const SecondScreen({super.key, this.title, this.color});
 
-  final String title;
+  final String? title;
   final Color? color;
 
   @override
@@ -18,7 +17,7 @@ class _SecondScreenState extends State<SecondScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title!),
       ),
       body: Center(
         child: Column(

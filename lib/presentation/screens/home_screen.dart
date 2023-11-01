@@ -1,12 +1,11 @@
 import 'package:bloctesting/logic/cubit/counter_cubit.dart';
-import 'package:bloctesting/presentation/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.title, this.color});
+  const HomeScreen({super.key, this.title, this.color});
 
-  final String title;
+  final String? title;
   final Color? color;
 
   @override
@@ -18,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title!),
       ),
       body: Center(
         child: Column(
@@ -77,25 +76,30 @@ class _HomeScreenState extends State<HomeScreen> {
             MaterialButton(
               color: widget.color,
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => BlocProvider.value(
-                      value: BlocProvider.of<CounterCubit>(context),
-                      child: const SecondScreen(
-                        title: 'Second Screen',
-                        color: Colors.red,
-                      ),
-                    ),
-                  ),
-                );
+                Navigator.of(context).pushNamed('/second');
               },
               child: const Text(
-                'Go to second screen',
+                'Second screen',
                 style: TextStyle(
                   color: Colors.white,
                 ),
               ),
-            )
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+            MaterialButton(
+              color: widget.color,
+              onPressed: () {
+                Navigator.of(context).pushNamed('/third');
+              },
+              child: const Text(
+                'Third screen',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ],
         ),
       ),

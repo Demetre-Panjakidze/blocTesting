@@ -1,24 +1,23 @@
 import 'package:bloctesting/logic/cubit/counter_cubit.dart';
-import 'package:bloctesting/presentation/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.title, this.color});
+class ThirdScreen extends StatefulWidget {
+  const ThirdScreen({super.key, this.title, this.color});
 
-  final String title;
+  final String? title;
   final Color? color;
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _ThirdScreenState createState() => _ThirdScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _ThirdScreenState extends State<ThirdScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title!),
       ),
       body: Center(
         child: Column(
@@ -71,31 +70,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 24,
-            ),
-            MaterialButton(
-              color: widget.color,
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => BlocProvider.value(
-                      value: BlocProvider.of<CounterCubit>(context),
-                      child: const SecondScreen(
-                        title: 'Second Screen',
-                        color: Colors.red,
-                      ),
-                    ),
-                  ),
-                );
-              },
-              child: const Text(
-                'Go to second screen',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            )
           ],
         ),
       ),
