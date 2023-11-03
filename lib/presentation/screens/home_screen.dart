@@ -1,4 +1,6 @@
+import 'package:bloctesting/constants/enums.dart';
 import 'package:bloctesting/logic/cubit/counter_cubit.dart';
+import 'package:bloctesting/logic/cubit/internet_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -24,6 +26,21 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            BlocBuilder<InternetCubit, InternetState>(
+              builder: (context, state) {
+                print(state);
+                if (state is InternetConnected &&
+                    state.connectionType == ConnectionType.Wifi) {
+                  return const Text('Wifi');
+                } else if (state is InternetConnected &&
+                    state.connectionType == ConnectionType.Mobile) {
+                  return const Text('Mobile');
+                } else if (state is InternetDisconnected) {
+                  return const Text('Disconnected');
+                }
+                return const CircularProgressIndicator();
+              },
+            ),
             const Text(
               'You have pushed the button this many times:',
             ),

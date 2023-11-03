@@ -47,7 +47,7 @@ class _SecondScreenState extends State<SecondScreen> {
                   style: const TextStyle(fontSize: 30),
                 );
               },
-            )
+            ),
           ],
         ),
       ),
