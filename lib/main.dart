@@ -13,6 +13,7 @@ void main() {
   ));
 }
 
+// root widget
 class MyApp extends StatelessWidget {
   final AppRouter appRouter;
   final Connectivity connectivity;
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //function build is called when widget is created
     return MultiBlocProvider(
       providers: [
         BlocProvider<InternetCubit>(
